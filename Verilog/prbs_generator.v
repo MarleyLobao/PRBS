@@ -5,7 +5,7 @@ module prbs_generator
 (
 input             clock,
 input             init,
-input      [ 3:0] type,
+input      [ 3:0] prbs_type,
 output reg [31:0] out
 );
 
@@ -374,7 +374,7 @@ endfunction
 //===================================================
 always @(posedge clock)begin
 	if (init)begin
-		case (type)
+		case (prbs_type)
 		TYPE_PRBS7 : out <= 32'hfe041851;
 		TYPE_PRBS9 : out <= 32'hff83df17;
 		TYPE_PRBS10: out <= 32'hffc070fd;
@@ -386,7 +386,7 @@ always @(posedge clock)begin
 		TYPE_PRBS31: out <= 32'hfffffffe;
 		endcase
 	end else begin
-		case (type)
+		case (prbs_type)
 		TYPE_PRBS7 : out <= prbs7(out);
 		TYPE_PRBS9 : out <= prbs9(out);
 		TYPE_PRBS10: out <= prbs10(out);
