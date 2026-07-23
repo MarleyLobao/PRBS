@@ -1,4 +1,4 @@
-`include "Verilog/prbs_generator.v"
+`include "prbs_generator.v"
 
 module prbs7_generator_tb;
 
